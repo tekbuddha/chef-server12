@@ -10,6 +10,10 @@ if node['chef_server12'].attribute?('nodes')
       #{node['chef_server12']['organization_private_key_path']} \
       root@#{node_ip}:#{validator_pem_path}"
 
+    # fetch ssl cert
+    execute "ssh -t -t -i /root/.ssh/id_rsa -o StrictHostKeyChecking=no \
+      root@#{node_ip} 'knife ssl fetch -c /etc/chef/client.rb'"
+
     # register the node and a client
     execute "ssh -t -t -i /root/.ssh/id_rsa -o StrictHostKeyChecking=no \
       root@#{node_ip} 'chef-client \
