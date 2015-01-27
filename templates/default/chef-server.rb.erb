@@ -11,3 +11,11 @@ oc_id['applications'] = {
   }
 }
 <% end -%>
+
+<% if node['chef_server12']['supermarket'] -%>
+oc_id['applications'] = { 
+  'my_supermarket' => { 
+    'redirect_uri' => "https://<%= node['chef_server12']['backend']['supermarket_fqdn'] %>/auth/chef_oauth2/callback"
+  } 
+}
+<% end -%>
