@@ -5,7 +5,7 @@ when 'rhel'
     '/chef-server-core-12.0.8-1.el6.x86_64.rpm'
   default['chef_server12']['analytics_url'] = \
     'https://web-dl.packagecloud.io/chef/stable/packages/el/6'\
-    '/opscode-analytics-1.1.3-1.x86_64.rpm'
+    '/opscode-analytics-1.1.3-1.el6.x86_64.rpm'
 when 'debian'
   default['chef_server12']['url'] = \
     'https://web-dl.packagecloud.io/chef/stable/packages/ubuntu/trusty'\
